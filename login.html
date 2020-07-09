@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="description" content="Login - Register Template">
+    <meta name="author" content="Lorenzo Angelino aka MrLolok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+</head>
+<script>
+    function login(){
+            var userna= document.getElementById("username").value;
+            var passwo=document.getElementById("password").value;
+            if((userna== "")||(passwo==""))
+            {
+                alert("please enter the username or password");
+            }
+            else if((passwo.length < 6) || (passwo.length > 15))
+            { 
+                alert("The password must be between 6 to 15 characters");              
+            }
+            else{
+			$.ajax({
+                url: 'homepage.html',
+                type: 'post',
+                data: {name:username,password:password},
+                success: function(response){
+                alert("success");
+   }
+});
+			}
+            
+        }
+</script>
+<body>
+    <div id="container-login">
+        <div id="title">
+            <i class="material-icons lock">lock</i> Login
+        </div>
+
+        <form>
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">face</i>
+                </div>
+                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">vpn_key</i>
+                </div>
+                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox">
+                <span style="color: #DDD">Remember Me</span>
+            </div>
+
+            <button onclick="login()">Click</button>
+        </form>
+
+        <div class="register">
+            Don't have an account yet?
+            <a href="register.html"><button id="register-link">Register here</button></a>
+        </div>
+    </div>
+</body>
+
+</html>
